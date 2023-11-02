@@ -1,12 +1,11 @@
-import Task from './Task'
-var AllTasks =['Desayunar','Hacer Ejercicio','Hacer Tareas','Regar Plantas']
+import { Task } from "./Task/Task";
 
-export default function TaskList () {
-    return (
-        <ul>
-            {AllTasks.map((task) => {
-            return <Task task={task}> </Task>
-            })}
-        </ul>
-    );
-}
+export const TaskList = ({ todo, setTodo }) => {
+  return (
+    <section>
+      {todo.map((task, index) => {
+        return <Task key={index} task={task} todo={todo} setTodo={setTodo} />;
+      })}
+    </section>
+  );
+};
