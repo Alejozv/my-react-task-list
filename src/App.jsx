@@ -1,18 +1,10 @@
 import { TaskManager } from "./components/TaskManager";
 import { Layout } from "./components/Layout/Layout";
 import { useState } from "react";
-
-const getLocalStorage = () => {
-  const listTask = localStorage.getItem("todo");
-  if (!listTask) {
-    localStorage.setItem("todo", JSON.stringify([]));
-  }
-  if (listTask) {
-    return JSON.parse(listTask);
-  }
-};
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 function App() {
+  const { getLocalStorage } = useLocalStorage();
   const [input, setInput] = useState("");
   const [todo, setTodo] = useState(getLocalStorage());
   console.log("todo desde app", todo);

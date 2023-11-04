@@ -12,7 +12,12 @@ export const TaskManager = ({ input, setInput, todo, setTodo }) => {
       }}
     >
       <Input input={input} setInput={setInput} todo={todo} setTodo={setTodo} />
-      <TaskList todo={todo} setTodo={setTodo} />
+      <TaskList
+        todo={todo}
+        setTodo={setTodo}
+        input={input}
+        setInput={setInput}
+      />
     </section>
   );
 };
