@@ -1,7 +1,7 @@
 import { TaskManager } from "./components/TaskManager";
-import { Layout } from "./components/Layout/Layout";
 import { useState } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { Stack, Text } from "@chakra-ui/react";
 
 function App() {
   const { getLocalStorage } = useLocalStorage();
@@ -9,18 +9,22 @@ function App() {
   const [todo, setTodo] = useState(getLocalStorage());
   console.log("todo desde app", todo);
   return (
-    <Layout>
-      <article style={{ textAlign: "center" }}>
-        <h1>Lista de Tareas</h1>
-        <p>Se han completado 2 de 5 tareas</p>
-      </article>
+    <Stack>
+      <Text
+        bgGradient="linear(to-l, #7928CA, #FF0080)"
+        bgClip="text"
+        fontSize="6xl"
+        fontWeight="extrabold"
+      >
+        Lista de Tareas TodoList
+      </Text>
       <TaskManager
         input={input}
         setInput={setInput}
         todo={todo}
         setTodo={setTodo}
       />
-    </Layout>
+    </Stack>
   );
 }
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import taskModule from "./Task.module.css";
 import { useTask } from "../../../hooks/useTask";
+import { Button, ButtonGroup, Input, Stack, Text } from "@chakra-ui/react";
 
 export const Task = ({ task, todo, setTodo, input, setInput }) => {
   const [edit, setEdit] = useState(false);
@@ -28,29 +29,54 @@ export const Task = ({ task, todo, setTodo, input, setInput }) => {
     deleteTask();
   };
   return (
-    <div className={taskModule.taskContainer}>
+    <Stack direction={"row"} gap={"16px"} width={"500px"}>
       <input type="checkbox" />
-      <div className={taskModule.task}>
+      <Stack
+        direction={"row"}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        width={"100%"}
+      >
         {edit ? (
-          <input
+          <Input
+            variant="outline"
+            size="md"
             type="text"
             value={editText}
             onChange={(event) => setEditText(event.target.value)}
           />
         ) : (
-          <h4>{task.title}</h4>
+          <Text as="b" color={"#CC72E8"} fontSize={"2xl"}>
+            {task.title}
+          </Text>
         )}
         <div>
           {edit ? (
-            <button onClick={handleSaveEdit}> Guardar </button>
+            <Button onClick={handleSaveEdit}> Guardar </Button>
           ) : (
-            <div>
-              <button onClick={handleEdit}>Editar</button>
-              <button onClick={handleRemove}>Eliminar</button>
-            </div>
+            <ButtonGroup>
+              <Button
+                onClick={handleEdit}
+                variant={"outline"}
+                size={"sm"}
+                colorScheme="yellow"
+                color={"#8B72E8"}
+              >
+                Editar
+              </Button>
+              <Button
+                onClick={handleRemove}
+                variant={"outline"}
+                size={"sm"}
+                colorScheme="red"
+                color={"#FF7DF8"}
+              >
+                Eliminar
+              </Button>
+            </ButtonGroup>
           )}
         </div>
-      </div>
-    </div>
+      </Stack>
+    </Stack>
   );
 };

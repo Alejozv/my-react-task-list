@@ -1,3 +1,5 @@
+import { Menu } from "./Menu";
+
 export const Layout = ({ children }) => {
   return (
     <div
@@ -8,6 +10,7 @@ export const Layout = ({ children }) => {
         alignItems: "center",
       }}
     >
+      <Menu />
       {children}
     </div>
   );

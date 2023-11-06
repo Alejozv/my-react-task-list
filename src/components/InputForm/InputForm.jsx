@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import form from "./Input.module.css";
+import styles from "./InputForm.module.css";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { useTask } from "../../../hooks/useTask";
+import { Button, Input } from "@chakra-ui/react";
 
-export const Input = ({ input, setInput, todo, setTodo }) => {
+export const InputForm = ({ input, setInput, todo, setTodo }) => {
   const { setLocalStorage } = useLocalStorage(todo);
   const { addTask } = useTask(input, setTodo, setInput, todo);
 
@@ -27,16 +28,23 @@ export const Input = ({ input, setInput, todo, setTodo }) => {
   }, [setLocalStorage]);
 
   return (
-    <form className={form.form} onSubmit={handleSubmit}>
-      <input
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <Input
         onChange={handleChange}
-        className={form.input}
+        className={styles.input}
         type="text"
-        placeholder="Que tienes planeado para hoy?"
+        placeholder="Escribe tu nueva Tarea"
         value={input}
         required
       />
-      <button className={form.button}>Agregar Tarea</button>
+      <Button
+        colorScheme="purple"
+        variant={"ghost"}
+        width={"250px"}
+        type="submit"
+      >
+        Agregar Tarea
+      </Button>
     </form>
   );
 };

@@ -1,8 +1,9 @@
+import { Stack } from "@chakra-ui/react";
 import { Task } from "./Task/Task";
 
 export const TaskList = ({ todo, setTodo, input, setInput }) => {
   return (
-    <section>
+    <Stack gap={5}>
       {todo.map((task, index) => {
         return (
           <Task
@@ -15,6 +16,6 @@ export const TaskList = ({ todo, setTodo, input, setInput }) => {
           />
         );
       })}
-    </section>
+    </Stack>
   );
 };
