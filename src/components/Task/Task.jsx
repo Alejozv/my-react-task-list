@@ -59,7 +59,7 @@ export const Task = ({ task, todo, setTodo, input, setInput }) => {
                 onClick={handleEdit}
                 variant={"outline"}
                 size={"sm"}
-                colorScheme="yellow"
+                colorScheme="purple"
                 color={"#8B72E8"}
               >
                 Editar
@@ -68,7 +68,7 @@ export const Task = ({ task, todo, setTodo, input, setInput }) => {
                 onClick={handleRemove}
                 variant={"outline"}
                 size={"sm"}
-                colorScheme="red"
+                colorScheme="pink"
                 color={"#FF7DF8"}
               >
                 Eliminar

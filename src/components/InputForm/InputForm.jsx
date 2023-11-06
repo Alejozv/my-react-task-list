@@ -31,9 +31,15 @@ export const InputForm = ({ input, setInput, todo, setTodo }) => {
     <form className={styles.form} onSubmit={handleSubmit}>
       <Input
         onChange={handleChange}
-        className={styles.input}
+        borderColor=" #7928CA"
+        _focus={{
+          borderColor: "#FF0080",
+        }}
         type="text"
         placeholder="Escribe tu nueva Tarea"
+        _placeholder={{
+          color: "#8B72E8",
+        }}
         value={input}
         required
       />

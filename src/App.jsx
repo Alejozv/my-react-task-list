@@ -7,7 +7,6 @@ function App() {
   const { getLocalStorage } = useLocalStorage();
   const [input, setInput] = useState("");
   const [todo, setTodo] = useState(getLocalStorage());
-  console.log("todo desde app", todo);
   return (
     <Stack>
       <Text

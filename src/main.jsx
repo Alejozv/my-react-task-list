@@ -7,10 +7,11 @@ import { Layout } from "./components/Layout/Layout.jsx";
 import { SobreNosotros } from "./pages/sobreNosotros.jsx";
 import { Tareas } from "./pages/tareas.jsx";
 import { ChakraProvider } from "@chakra-ui/react";
+import theme from "../theme.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Layout>
           <Routes>
